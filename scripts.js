@@ -13,3 +13,16 @@ function getComputerChoice() {
     console.log(choiceStr);
     return choiceStr;
 }
+
+function chooseWinner(playerSelection, computerChoice) {
+    let winner = undefined;
+    let player = toLowerCase(playerSelection);
+    if (playerSelection == computerChoice){
+        winner = "Tie";
+    }
+    else if (player == 'rock') {
+        if (computerChoice == ) {
+
+        }
+    }
+}
