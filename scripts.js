@@ -46,3 +46,7 @@ function chooseWinner(playerSelection, computerChoice) {
     }
     return winner;
 }
+
+function game() {
+    
+}
