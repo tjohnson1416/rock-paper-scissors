@@ -16,13 +16,33 @@ function getComputerChoice() {
 
 function chooseWinner(playerSelection, computerChoice) {
     let winner = undefined;
-    let player = toLowerCase(playerSelection);
-    if (playerSelection == computerChoice){
+    let player = playerSelection.toLowerCase();
+    if (player == computerChoice){
         winner = "Tie";
     }
     else if (player == 'rock') {
-        if (computerChoice == ) {
-
+        if (computerChoice == 'paper') {
+            winner = 'computer wins';
+        }
+        if (computerChoice == 'scissors') {
+            winner = 'player wins';
         }
     }
+    else if (player == 'paper') {
+        if (computerChoice == 'rock') {
+            winner = 'player wins';
+        }
+        if (computerChoice == 'scissors') {
+            winner = 'computer wins';
+        }
+    }
+    else if (player == 'scissors') {
+        if (computerChoice == 'paper') {
+            winner = 'player wins';
+        }
+        if (computerChoice == 'rock') {
+            winner = 'computer wins';
+        }
+    }
+    return winner;
 }
