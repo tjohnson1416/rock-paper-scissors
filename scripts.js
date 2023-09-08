@@ -30,7 +30,7 @@ function chooseWinner(playerSelection, computerChoice) {
     }
 
 /* Determine the winner */
-    else if (player == 0) {
+    if (playerInt == 0) {
         if (computerChoice == 1) {
             winner = 2;
         }
@@ -38,7 +38,7 @@ function chooseWinner(playerSelection, computerChoice) {
             winner = 1;
         }
     }
-    else if (player == 1) {
+    else if (playerInt == 1) {
         if (computerChoice == 0) {
             winner = 1;
         }
@@ -46,7 +46,7 @@ function chooseWinner(playerSelection, computerChoice) {
             winner = 2;
         }
     }
-    else if (player == 2) {
+    else if (playerInt == 2) {
         if (computerChoice == 1) {
             winner = 1;
         }
@@ -61,7 +61,7 @@ function game() {
 let compWins = 0;
 let playerWins = 0;
 let roundWinner = 0;
-for (let i = 0; i < 4; i++) {
+for (let i = 0; i < 5; i++) {
     let playerChoice = prompt('Rock, Paper or Scissors?');
     roundWinner = chooseWinner(playerChoice,getComputerChoice());
     if (roundWinner == 1){
@@ -72,11 +72,17 @@ for (let i = 0; i < 4; i++) {
         compWins++;
         console.log("Computer won the round")
     }
+    else if (roundWinner == 0){
+        console.log("This round is a tie")
+    }
 }
 if (playerWins > compWins) {
     console.log('Player wins the game!')
 }
 if (playerWins < compWins) {
     console.log('Computer wins the game!')
+}
+if (playerWins == compWins){
+    console.log('This game is a tie')
 }
 }
