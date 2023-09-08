@@ -1,17 +1,6 @@
 function getComputerChoice() {
     let choiceInt = Math.floor(Math.random() * 3);
 /* 0 = rock, 1 = paper, 2 = scissors */
-/*    let choiceStr = undefined;
-    if (choiceInt == 0) {
-        choiceStr = 'rock';
-    }
-    else if (choiceInt == 1) {
-        choiceStr = 'paper';
-    }
-    else if (choiceInt == 2) {
-        choiceStr = 'scissors';
-    }
-    console.log(choiceStr); */
     return choiceInt;
 }
 
@@ -62,7 +51,7 @@ let compWins = 0;
 let playerWins = 0;
 let roundWinner = 0;
 for (let i = 0; i < 5; i++) {
-    let playerChoice = prompt('Rock, Paper or Scissors?');
+    let playerChoice = prompt('Rock, Paper or Scissors? Round: ' + (i + 1));
     roundWinner = chooseWinner(playerChoice,getComputerChoice());
     if (roundWinner == 1){
         playerWins++;
