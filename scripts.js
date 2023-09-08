@@ -1,6 +1,7 @@
 function getComputerChoice() {
     let choiceInt = Math.floor(Math.random() * 3);
-    let choiceStr = undefined;
+/* 0 = rock, 1 = paper, 2 = scissors */
+/*    let choiceStr = undefined;
     if (choiceInt == 0) {
         choiceStr = 'rock';
     }
@@ -10,50 +11,72 @@ function getComputerChoice() {
     else if (choiceInt == 2) {
         choiceStr = 'scissors';
     }
-    console.log(choiceStr);
-    return choiceStr;
+    console.log(choiceStr); */
+    return choiceInt;
 }
 
 function chooseWinner(playerSelection, computerChoice) {
-    let winner = undefined;
+/* 0 = tie, 1 = player win, 2 = computer win*/
+    let winner = 0;
     let player = playerSelection.toLowerCase();
-    if (player == computerChoice){
-        winner = "Tie";
-    }
-    else if (player == 'rock') {
-        if (computerChoice == 'paper') {
-            winner = 'computer';
-        }
-        if (computerChoice == 'scissors') {
-            winner = 'player';
-        }
-    }
-    else if (player == 'paper') {
-        if (computerChoice == 'rock') {
-            winner = 'player';
-        }
-        if (computerChoice == 'scissors') {
-            winner = 'computer';
-        }
+/* 0 = rock, 1 = paper, 2 = scissors, player choice defaults to rock*/
+/*Statements to convert string input to integer to make return statements easier to process */
+    let playerInt = 0;
+    if (player == 'paper') {
+        playerInt = 1;
     }
     else if (player == 'scissors') {
-        if (computerChoice == 'paper') {
-            winner = 'player';
+        playerInt = 2;
+    }
+
+/* Determine the winner */
+    else if (player == 0) {
+        if (computerChoice == 1) {
+            winner = 2;
         }
-        if (computerChoice == 'rock') {
-            winner = 'computer';
+        if (computerChoice == 2) {
+            winner = 1;
+        }
+    }
+    else if (player == 1) {
+        if (computerChoice == 0) {
+            winner = 1;
+        }
+        if (computerChoice == 2) {
+            winner = 2;
+        }
+    }
+    else if (player == 2) {
+        if (computerChoice == 1) {
+            winner = 1;
+        }
+        if (computerChoice == 0) {
+            winner = 2;
         }
     }
     return winner;
 }
 
 function game() {
-let playerChoice = undefined;
 let compWins = 0;
 let playerWins = 0;
-let roundWinner = undefined;
+let roundWinner = 0;
 for (let i = 0; i < 4; i++) {
-    playerChoice = prompt('Rock, Paper or Scissors?');
-    
+    let playerChoice = prompt('Rock, Paper or Scissors?');
+    roundWinner = chooseWinner(playerChoice,getComputerChoice());
+    if (roundWinner == 1){
+        playerWins++;
+        console.log("Player won the round")
+    }
+    else if (roundWinner == 2){
+        compWins++;
+        console.log("Computer won the round")
+    }
+}
+if (playerWins > compWins) {
+    console.log('Player wins the game!')
+}
+if (playerWins < compWins) {
+    console.log('Computer wins the game!')
 }
 }
