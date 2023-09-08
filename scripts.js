@@ -22,31 +22,38 @@ function chooseWinner(playerSelection, computerChoice) {
     }
     else if (player == 'rock') {
         if (computerChoice == 'paper') {
-            winner = 'computer wins';
+            winner = 'computer';
         }
         if (computerChoice == 'scissors') {
-            winner = 'player wins';
+            winner = 'player';
         }
     }
     else if (player == 'paper') {
         if (computerChoice == 'rock') {
-            winner = 'player wins';
+            winner = 'player';
         }
         if (computerChoice == 'scissors') {
-            winner = 'computer wins';
+            winner = 'computer';
         }
     }
     else if (player == 'scissors') {
         if (computerChoice == 'paper') {
-            winner = 'player wins';
+            winner = 'player';
         }
         if (computerChoice == 'rock') {
-            winner = 'computer wins';
+            winner = 'computer';
         }
     }
     return winner;
 }
 
 function game() {
+let playerChoice = undefined;
+let compWins = 0;
+let playerWins = 0;
+let roundWinner = undefined;
+for (let i = 0; i < 4; i++) {
+    playerChoice = prompt('Rock, Paper or Scissors?');
     
+}
 }
