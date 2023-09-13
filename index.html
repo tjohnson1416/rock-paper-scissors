@@ -7,12 +7,23 @@
     <body>
         <div class="header">
             <h1>Rock, Paper, Scissors</h1>
+            <div class="score-container">
+                <div class="score-card player">
+                    <h3>Player</h3>
+                    <div id="player-score">0</div>
+                </div>
+                <div class="score-card computer">
+                    <h3>Computer</h3>
+                    <div id="computer-score">0</div>
+                </div>
+            </div>
         </div>
         <div class="container">
             <button id="rock" class="button">Rock</button>
             <button id="paper" class="button">Paper</button>
             <button id="scissors" class="button">Scissors</button>
         </div>
+        <div id="winner-banner"></div>
 
         <script src="scripts.js">
         </script>

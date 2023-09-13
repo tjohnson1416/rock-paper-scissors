@@ -1,16 +1,52 @@
+let roundsPlayed = 0;
+let compWins = 0;
+let playerWins = 0;
+
 const buttons = document.querySelectorAll('.button');
 buttons.forEach((button) => {
     button.addEventListener('click', (e) =>{
         const playerChoice = button.id;
-        console.log(playerChoice);
+        const winner = chooseWinner(playerChoice,getComputerChoice());
+        trackScores(winner);
+        console.log(compWins);
+        console.log(playerWins);
     });
 });
 
-/*rockButton.addEventListener('click', x => {
-    const compChoice = getComputerChoice();
-    const winner = chooseWinner('rock', compChoice);
-    console.log(winner);
-});*/
+
+function trackScores(roundWinner){
+    const playerScore = document.querySelector('#player-score');
+    const computerScore = document.querySelector('#computer-score');
+    const winnerAlert = document.querySelector('#winner-banner');
+    let gameWinner = undefined;
+    if (compWins < 5 && playerWins < 5){
+        if (roundWinner==0){
+            roundsPlayed += 1;
+        }
+        else if (roundWinner==1){
+            roundsPlayed += 1;
+            playerWins += 1;
+            playerScore.innerHTML = playerWins;
+        }
+        else if (roundWinner==2){
+            roundsPlayed += 1;
+            compWins += 1;
+            computerScore.innerHTML = compWins;
+        };
+    }
+    if (compWins==5 || playerWins==5){
+        if (compWins > playerWins){
+            gameWinner = 'Computer Wins';
+            winnerAlert.innerHTML = gameWinner;
+        }
+        else {
+            gameWinner = 'Player Wins';
+            winnerAlert.innerHTML = gameWinner;
+        };
+        console.log(gameWinner);
+    };
+};
+
 
 function getComputerChoice() {
     let choiceInt = Math.floor(Math.random() * 3);

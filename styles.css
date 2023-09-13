@@ -1,9 +1,29 @@
 .container {
     display: flex;
     justify-content: space-around;
+    margin: 60px;
 }
 
 .button {
     width: 25%;
     height: 100px;
+}
+
+.disabled-button {
+    cursor: not-allowed;
+    background-color: red;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+}
+
+.score-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+h1 {
+    text-align: center;
 }
