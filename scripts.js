@@ -47,31 +47,33 @@ function chooseWinner(playerSelection, computerChoice) {
 }
 
 function game() {
-let compWins = 0;
-let playerWins = 0;
-let roundWinner = 0;
-for (let i = 0; i < 5; i++) {
-    let playerChoice = prompt('Rock, Paper or Scissors? Round: ' + (i + 1));
-    roundWinner = chooseWinner(playerChoice,getComputerChoice());
-    if (roundWinner == 1){
-        playerWins++;
-        console.log("Player won the round")
+    let compWins = 0;
+    let playerWins = 0;
+    let roundWinner = 0;
+
+    for (let i = 0; i < 5; i++) {
+        let playerChoice = prompt('Rock, Paper or Scissors? Round: ' + (i + 1));
+        roundWinner = chooseWinner(playerChoice,getComputerChoice());
+        if (roundWinner == 1){
+            playerWins++;
+            console.log("Player won the round");
+        }
+        else if (roundWinner == 2){
+            compWins++;
+            console.log("Computer won the round");
+        }
+        else if (roundWinner == 0){
+            console.log("This round is a tie");
+        };
+    };
+
+    if (playerWins > compWins) {
+        console.log('Player wins the game!');
     }
-    else if (roundWinner == 2){
-        compWins++;
-        console.log("Computer won the round")
+    if (playerWins < compWins) {
+        console.log('Computer wins the game!');
     }
-    else if (roundWinner == 0){
-        console.log("This round is a tie")
-    }
-}
-if (playerWins > compWins) {
-    console.log('Player wins the game!')
-}
-if (playerWins < compWins) {
-    console.log('Computer wins the game!')
-}
-if (playerWins == compWins){
-    console.log('This game is a tie')
-}
+    if (playerWins == compWins){
+        console.log('This game is a tie');
+    };
 }
