@@ -1,3 +1,17 @@
+const buttons = document.querySelectorAll('.button');
+buttons.forEach((button) => {
+    button.addEventListener('click', (e) =>{
+        const playerChoice = button.id;
+        console.log(playerChoice);
+    });
+});
+
+/*rockButton.addEventListener('click', x => {
+    const compChoice = getComputerChoice();
+    const winner = chooseWinner('rock', compChoice);
+    console.log(winner);
+});*/
+
 function getComputerChoice() {
     let choiceInt = Math.floor(Math.random() * 3);
 /* 0 = rock, 1 = paper, 2 = scissors */
